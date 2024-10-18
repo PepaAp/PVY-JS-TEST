@@ -39,7 +39,7 @@
                     prvky na webových stránkách jako:
               <ul>
                 <li>INTERAKTVNI PRVKY:
-                  <a href="https://codepen.io/juliangarnier/pen/krNqZO">Simulace solárního panelu</a>
+                  <a href="https://codepen.io/juliangarnier/pen/krNqZO">Simulace solárního systému</a>
                 </li>
                 <li>OZDOBY:
                   <a href="https://pbutcher.uk/flipdown/">Ukazatel času
@@ -63,11 +63,11 @@
           <div class="bg-info p-3">
             <p>
               <ol>
-                <li>camelCase for variable names</li>
-                <li>const, var or let for variable declaration</li>
-                <li>single quotes for strings</li>
-                <li>semicolons at the end of each statement (optional)</li>
-                <li>Use comments to explain your code!</li>
+                <li>camelCase for variables</li>
+                <li>const, let, or var (old) for declaring variables</li>
+                <li>using quotes for strings</li>
+                <li>semicolons at the end of statements</li>
+                <li>using correct brackets</li>
               </ol>
             </p>
           </div>
@@ -85,14 +85,14 @@
           </blockquote>
           <div class="bg-light p-3">
             <code>
-              // 1. Vložit kód do tagu script<br/>
-              &lt;script src="./scripts/example.js"&gt;&lt;/script&gt;
+              // 1. Vložení kódu do tagu<br/>
+              &lt;script&gt;console.log("baf")&lt;/script&gt;
               <br />
-              // 2. Vložit kód do tagu head<br />
-              &lt;script&gt;...&lt;/script&gt;
+              // 2. Připojení externího souboru<br />
+              &lt;script src="soubor.js"&gt;&lt;/script&gt;
               <br />
-              // 3. Vložit kód do tagu body<br />
-              &lt;script&gt;...&lt;/script&gt;
+              // 3. Vyvolání funkce v odkazu<br />
+              &lt;a href="javascript"&gt;&lt;/a&gt;
             </code>
           </div>
         </div>
@@ -109,14 +109,12 @@
           </blockquote>
           <div class="bg-light p-3">
             <code>
-              let x = 0; // s přiřazením hodnoty<br />
-              let x; // bez přiřazení hodnoty<br />
-              let x = null; // hodnota null<br />
-              let x = 42; // celé číslo (typ number)<br />
-              let x = 3.14; // reálné číslo (typ number)<br />
-              let x = 1.23e5; // zápis desetinného čísla pomocí exponentu<br />
+              let x = 0; // typ number<br />
+              let x; // typ undefined<br />
+              let x = null; // typ null<br />
+              let x = 1.12e-5; // zápis desetinného čísla<br />
               let str = "Hello, World!"; // typ string<br />
-              let prestupny = false; // logická hodnota (typ boolean)<br />
+              let prestupny = false; // typ boolean<br />
             </code>
           </div>
         </div>
@@ -136,7 +134,7 @@
           <div class="bg-light text-danger p-3">
             <h4>Matematické</h4>
             <code>
-              +, -, *, /, % (modulo - zbytek po celočíselném dělení), **
+              +, -, *, /, % (modulo = zbytek po dělení), **
               (umocnění)
             </code>
             <h4>Přiřazovací</h4>
@@ -153,8 +151,7 @@
             </code>
             <h4>Bitové</h4>
             <code>
-              & (AND), | (OR), ^ (XOR), ~ (NOT),<br> << (posun vlevo), >> (posun
-              vpravo),<br> >>> (posun vpravo s nulovým doplněním)
+              & (AND), | (OR), ^ (XOR), ~ (NOT)
             </code>
             <h4>Typové</h4>
             <code>
@@ -177,25 +174,23 @@
           <div class="bg-light text-danger p-3">
             <h4>alert()</h4>
             <code>
-                /*vyskočí okno se zprávou že zadal špatné heslo. musí kliknout na "OK", aby zavřel a mohl pokračovat. */<br />
+                /*vyskočí popup okno které upozorní uživatele že zadal špatné heslo*/<br />
               alert('Nezadal jsi správné heslo!');
             </code>
             <h4>prompt()</h4>
             <code>
-              /* Do proměnné password vloží heslo zadané uživatelem */<br />
+              /*vyskočí popup okno do kterého napíšeme heslo a to se pak uloží do proměnné password*/<br />
               let password = prompt('Zadejte heslo:');
             </code>
             <h4>confirm()</h4>
             <code>
-              /*zobrazí potvrzovací okno s otázkou "Chceš...Seznam.cz?". 
-              Pokud "OK", bude přesměrován na https://seznam.cz.*/<br />
+              /*vyskočí popup okno kde pokud uživatel bude souhlasit s přesměrováním na stránky seznam tak ho to na ně přesměruje*\<br />
               if (confirm('Chceš přejít na stránky Seznam.cz?'))
               location.href='https://seznam.cz';
             </code>
             <hr />
             <p class="alert alert-primary" role="alert">
-              Varování: Popup okna mohou být blokována v prohlížeči 
-                        a jsou špíše rušivá pro uživatele.
+              Varování: Popup okna vypadají pofidérně, některé prohlížeče je mohou blokovat.
             </p>
           </div>
         </div>
@@ -254,7 +249,7 @@
             </ul>
           </blockquote>
           <div class="bg-info p-3" id="osmy">
-            Oblast myších zájmů
+            Přejed mě myší
           </div>
           <script>
             let element = document.getElementById("osmy");
@@ -379,10 +374,23 @@
               Vytvořte v JS funkci, která zjistí, zda náhodně zadané číslo je prvočíslem:
             </p>
           </blockquote>
-          <div class="bg-info p-3" id="dvanacty">            
-          </div>
+          <div class="bg-info p-3" id="dvanacty"></div>
           <script>
-
+            function isPrime(num) {
+              if (num <= 1) return false;
+              for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+              }
+              return true;
+            }
+        
+            function random() {
+              let num = Math.floor(Math.random() * 100) + 1;
+              let result = isPrime(num) ? `${num} je prvočíslo.` : `${num} není prvočíslo.`;
+              document.getElementById('dvanacty').innerText = result;
+            }
+        
+            random();
           </script>
         </div>
       </div>
@@ -413,7 +421,7 @@
                 update()
                 refreshFlag = false
             }
-            //refresh()
+            refresh()
           </script>
         </div>
         <div class="col-sm-6 bg-secondary text-light p-5">
@@ -426,18 +434,12 @@
           <div class="bg-info p-3">
             <img src="img/hrad.webp" class="img-fluid" alt="foto" id="foto">            
           </div>
-          <script>
+          <script>            
             const img = document.getElementById("foto");
-            let fotky = ["img/hrad.webp", "img/praha.jpg", "img/staromakjpg", "img/vltava.jpg"];
+            let fotky = ["img/hrad.webp", "img/praha.jpg", "img/staromak.jpg", "img/vltava.jpg"];
 
             function restart () {
-              for (let i = 0; i <= fotky.length; i++) {
-                console.log(i, fotky[i])
-                if (i == fotky.length) {
-                  i = 0
-                }
-                img.src = fotky[i]
-              }
+              img.src = fotky[Math.floor(Math.random()*3)];
             }
             setInterval(restart, 3000)
 
